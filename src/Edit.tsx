@@ -59,24 +59,41 @@ export default function Edit() {
             <button className="bg-white opacity-0 hover:opacity-30 p-2 rounded-xl absolute left-0 bottom-0" onClick={() => setOpen(!open)}>
                 <Pencil />
             </button>
-            <dialog open={open} className="h-screen fixed left-0 top-0 w-1/3 bg-zinc-700 z-30 text-white">
+            <dialog open={open} className="h-screen fixed left-0 top-0 w-1/3 bg-gray-300 z-30">
                 <h1 className="text-center">
                     Edit
                 </h1>
                 <br />
                 {
-                    links.map(l =>
-                        <div className="w-full bg-gray-700" id={l.id}>
+                    links.map((l, i) =>
+                        <div className="w-full bg-gray-700 text-white" id={l.id}>
                             {l.domain}
-                            <button onClick={() => linkUp(l.id)}>
-                                Up
-                            </button>
-                            <button onClick={() => linkDown(l.id)}>
-                                Down
-                            </button>
-                            <button onClick={() => setLinks(links.filter(li => li.id !== l.id))}>
-                                Delete
-                            </button>
+                            <div className="grid gap-2 grid-cols-4">
+                                <button disabled={i <= 0} onClick={() => linkUp(l.id)}>
+                                    Up
+                                </button>
+                                <button disabled={i >= links.length - 1} onClick={() => linkDown(l.id)}>
+                                    Down
+                                </button>
+                                <button onClick={() => setLinks(links.filter(li => li.id !== l.id))}>
+                                    Delete
+                                </button>
+                                <button onClick={
+                                    () => {
+                                        const url = prompt("your image's url") ?? undefined;
+
+                                        const link = links.find(li => li.id === l.id);
+
+                                        if (!link) throw new Error("link with that id is not found")
+
+                                        link.customImage = url;
+
+                                        setLinks([link, ...links.filter(li => li.id !== l.id)])
+                                    }
+                                }>
+                                    Set custom image
+                                </button>
+                            </div>
                         </div>
                     )
                 }
