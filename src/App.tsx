@@ -15,7 +15,7 @@ function App() {
                 <LinksGrid />
             </div>
             <button
-                className="absolute right-0 bottom-0 rounded-xl bg-white opacity-30 p-2"
+                className="absolute right-0 bottom-0 rounded-xl bg-white opacity-0 hover:opacity-30 p-2"
                 onClick={() => {
                     localStorage.removeItem("links")
                     window.location.reload()

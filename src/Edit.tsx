@@ -56,7 +56,7 @@ export default function Edit() {
 
     return (
         <>
-            <button className="bg-white opacity-30 p-2 rounded-xl absolute left-0 bottom-0" onClick={() => setOpen(!open)}>
+            <button className="bg-white opacity-0 hover:opacity-30 p-2 rounded-xl absolute left-0 bottom-0" onClick={() => setOpen(!open)}>
                 <Pencil />
             </button>
             <dialog open={open} className="h-screen fixed left-0 top-0 w-1/3 bg-zinc-700 z-30 text-white">
