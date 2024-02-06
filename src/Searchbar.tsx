@@ -14,7 +14,7 @@ export default function Searchbar() {
             className={
                 clsx(
                     `absolute w-[52rem] left-0 right-0 mx-auto 
-                    mt-5 rounded-[3rem] h-24 flex`,
+                    mt-8 rounded-[3rem] h-24 flex`,
                     !show && "hidden"
                 )}
         >

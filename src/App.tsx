@@ -11,7 +11,7 @@ function App() {
     return (
         <div className="w-full h-screen bg-1 top-0 left-0" style={background}>
             <Searchbar />
-            <div className="flex justify-center pt-52">
+            <div className="flex justify-center pt-60">
                 <LinksGrid />
             </div>
             <button
