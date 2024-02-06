@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "makeiconscentered",
+    "version": "1.0",
+    "description": "replace new tab page with custom one.",
+    "permissions": [
+        "tabs"
+    ],
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "*"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}
