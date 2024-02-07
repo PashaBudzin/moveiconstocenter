@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 
-export default function Link({ domain, customImage }: link) {
+export default function Link({ domain, customImage, customName }: link) {
     // const [{ isDragging }, drag] = useDrag(() => ({
     //     type: "LINK",
     //     item: { domain },
@@ -44,10 +44,7 @@ export default function Link({ domain, customImage }: link) {
             </a>
             <div className="w-full relative left-[3px] justify-center text-center text-white">
                 {
-                    domain.length >= 21 ?
-                        domain.replace(/^(https?:|)\/\//, '').replace(/\.[a-zA-Z]+$/, "").substring(0, 14).concat("...")
-                        :
-                        domain.replace(/^(https?:|)\/\//, '').replace(/\.[a-zA-Z]+$/, "")
+                    getName(domain, customName)
                 }
             </div>
         </div>
@@ -56,6 +53,18 @@ export default function Link({ domain, customImage }: link) {
 
 function getIconUrl(domain: string, size: number) {
     return `https://www.google.com/s2/favicons?domain=${domain}&sz=${size}`;
+}
+
+function getName(domain: string, customName: string | undefined) {
+    if (customName) return customName
+    return stripName(domain).replace(/^(https?:|)\/\//, '').replace(/\.[a-zA-Z]+$/, "")
+}
+
+function stripName(str: string) {
+    return str.length >= 21 ?
+        str.substring(0, 14).concat("...")
+        :
+        str
 }
 
 export type link = {

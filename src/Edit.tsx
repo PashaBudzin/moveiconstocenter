@@ -68,7 +68,7 @@ export default function Edit() {
                     links.map((l, i) =>
                         <div className="w-full bg-gray-700 text-white" id={l.id}>
                             {l.domain}
-                            <div className="grid gap-2 grid-cols-4">
+                            <div className="grid gap-2 grid-cols-5">
                                 <button disabled={i <= 0} onClick={() => linkUp(l.id)}>
                                     Up
                                 </button>
@@ -92,6 +92,21 @@ export default function Edit() {
                                     }
                                 }>
                                     Set custom image
+                                </button>
+                                <button onClick={
+                                    () => {
+                                        const name = prompt("your custom name") ?? undefined;
+
+                                        const link = links.find(li => li.id === l.id);
+
+                                        if (!link) throw new Error("link with that id is not found")
+
+                                        link.customName = name;
+
+                                        setLinks([link, ...links.filter(li => li.id !== l.id)])
+                                    }
+                                }>
+                                    Set custom name
                                 </button>
                             </div>
                         </div>
