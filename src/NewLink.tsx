@@ -13,7 +13,7 @@ export default function NewLink() {
     const createNewLink = useCallback((e: FormEvent) => {
         e.preventDefault();
 
-        setLinks([...links, { domain, id: cuid(), customImage: undefined }])
+        setLinks([...links, { domain, id: cuid() }])
 
         setOpen(false);
         setDomain("");

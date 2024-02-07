@@ -70,6 +70,6 @@ function stripName(str: string) {
 export type link = {
     domain: string,
     id: string,
-    customName: string | undefined,
-    customImage: string | undefined
+    customName?: string,
+    customImage?: string
 };
