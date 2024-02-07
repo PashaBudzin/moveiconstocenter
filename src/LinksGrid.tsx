@@ -10,7 +10,7 @@ export default function LinksGrid() {
     return (
         <div className="justify-center grid grid-cols-6 w-[74] gap-2">
             {
-                links.map(l => <Link domain={l.domain} key={l.id} id={l.id} customImage={l.customImage} />)
+                links.map(l => <Link {...l} />)
             }
             <NewLink />
         </div>

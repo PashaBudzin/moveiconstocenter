@@ -58,4 +58,9 @@ function getIconUrl(domain: string, size: number) {
     return `https://www.google.com/s2/favicons?domain=${domain}&sz=${size}`;
 }
 
-export type link = { domain: string, id: string, customImage: string | undefined };
+export type link = {
+    domain: string,
+    id: string,
+    customName: string | undefined,
+    customImage: string | undefined
+};
